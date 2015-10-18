@@ -1,9 +1,15 @@
-<h1>Our Products</h1>
+<h1 class="products">Our Products</h1>
 
 
 <% @products.each do |product| %>
   <div class="row">
-    <h3><%= product.name %></h3>
+    <div class="col-md-1 price">
+      <h3>$<%= product.price %></h3>
+    </div>
+    <div class="col-md-3">
+      <h3><%= product.name %></h3>
+    </div>
+  
   </div>
 
   <div class="row">

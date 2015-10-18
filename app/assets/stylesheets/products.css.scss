@@ -1,3 +1,21 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.products {
+	font-size: 3.5em;
+	margin-bottom: 25px;
+	color: rgb(200, 20, 240);
+}
+
+.price {
+	background-color: rgb(200, 20, 200);
+	border-radius: 55px;
+	padding: 5px;
+	height: 65px;
+	margin-bottom: 15px;
+}
+
+.price h3 {
+		margin: 15px 10px 10px 10px;
+}
