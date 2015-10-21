@@ -10,21 +10,16 @@
   
   </div>
 
-  <br>
-
   <div class="row">
     <div class="col-md-3">
       <p><%= @product.description %></p>
-    </div>
-    <div class="col-md-3">
-      <p><%= @product.image_url %></p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
       <p>Color: <%= @product.color %></p>
     </div>
+    <div class="col-md-3 bike-show">
+      <%= image_tag(@product.image_url) %>
+    </div>
   </div>
+
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
