@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'static_pages/index'
 
+  post 'static_pages/thank_you'
+
   resources :products
 
   resources :orders, only: [:index, :show, :new, :create]
