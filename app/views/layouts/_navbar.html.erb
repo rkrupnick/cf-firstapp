@@ -16,10 +16,13 @@
 	        <li class="active"><%= link_to "Home", root_path %></li>
 	        <li><%= link_to "Our Products", products_path %></li>
 	      	<li>
-	      		<%= form_tag("/products", method: "get") do %>
-							<%= label_tag(:q, "Search for:") %>
-							<%= text_field_tag(:q) %>
-							<%= submit_tag("Search") %>
+	      		<%= form_tag("/products", method: "get", :class => 'navbar-form navbar-left') do %>
+	      			<div class="form-group">
+								<%= text_field_tag(:q) %>
+								<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+									Search
+								<% end %>
+	    				</div>
 	      		<% end %>
 	      	</li>
 	      </ul>
