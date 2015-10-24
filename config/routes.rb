@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   post 'static_pages/thank_you'
 
-  resources :products
+  resources :products do
+    resources :comments
+  end
 
   resources :orders, only: [:index, :show, :new, :create]
 
