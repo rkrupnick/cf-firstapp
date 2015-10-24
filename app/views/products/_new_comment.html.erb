@@ -9,11 +9,13 @@
 				</div>
 				<div class="form-group">
 					<%= f.label :rating %><br>
-					<%= f.text_field :rating, class: 'rating' %>
+					<%= f.text_field :rating, class: 'rating form-control' %>
 				</div>
 				<div class="actions">
-		        <%= f.submit(class: 'btn btn-default') %>
-		     </div>
+        <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+            Create Review
+        <% end %>
+      </div>
 		  </div>
 		</div>
 	<% end %>
