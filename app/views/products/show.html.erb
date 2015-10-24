@@ -4,22 +4,27 @@
     <div class="col-md-1 col-sm-2 col-xs-3 price">
       <h3>$<%= @product.price %></h3>
     </div>
-    <div class="col-md-3 col-md-offset-1 col-sm-6 col-sm-offset-1 col-sm-8 col-xs-offset-1">
+    <div class="col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-sm-8 col-xs-offset-1">
       <h3><%= @product.name %></h3>
     </div>
   
   </div>
 
-  <div class="row">
-    <div class="col-md-3 col-sm-6">
-      <p><%= @product.description %></p>
-      <p>Color: <%= @product.color %></p>
+  <br>
+
+  <div class="row product-info">
+    <div class="col-md-4  col-sm-6">
+      <%= image_tag(@product.image_url, :class => 'img-thumbnail') %>
     </div>
-    <div class="col-md-3  col-sm-6 bike-show">
-      <%= image_tag(@product.image_url) %>
+    <div class="col-md-3 col-sm-6">
+      <p><%= @product.description %></p><br>
+      <p><em>Color:</em> <%= @product.color %></p>
+      <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div></p>
     </div>
   </div>
 
+  <hr>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+ <%= render 'new_comment' %>
+
+ <%= render 'comments' %>
