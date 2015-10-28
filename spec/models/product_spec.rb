@@ -14,4 +14,14 @@ describe Product do
 			expect(@product.average_rating).to eq 3
 		end
 	end
+
+	context "when the product has a description but no name" do
+		before do
+			@product = Product.create(:description => "an awesome bike")
+		end
+
+		it "is invalid" do
+			expect(@product).not_to be_valid
+		end
+	end
 end
