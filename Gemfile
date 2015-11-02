@@ -49,3 +49,4 @@ end
 gem 'devise'
 gem 'cancancan'
 gem 'will_paginate'
+gem 'factory_girl_rails', '~> 4.0'
