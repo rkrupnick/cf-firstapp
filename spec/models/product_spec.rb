@@ -3,11 +3,12 @@ require 'rails_helper'
 describe Product do
 	context "when the product has comments" do
 		before do
-			@product = Product.create(:name => "race bike")
-			@user = User.create(:email => "user@example.com", :password => "password")
-			@product.comments.create(:rating => 1, :user => @user, :body => "Awful bike!")
-			@product.comments.create(:rating => 3, :user => @user, :body => "OK bike!")
-			@product.comments.create(:rating => 5, :user => @user, :body => "Great bike!")
+			@product = build(:product)
+			@user1 = build(:user, email: "admin@example.com")
+			@user2 = build(:user, email: "anotheruser@example.com")
+			comment = create(:comment, product: @product)
+			comment3 = create(:comment, rating: 3, product: @product, user: @user1)
+			comment5 = create(:comment, rating: 1, product: @product, user: @user2)
 		end
 
 		it "returns the average rating of all comments" do
@@ -17,7 +18,7 @@ describe Product do
 
 	context "when the product has a description but no name" do
 		before do
-			@product = Product.create(:description => "an awesome bike")
+			@product = build(:product, name: "")
 		end
 
 		it "is invalid" do

@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe UsersController do
 	before do 
-		@user = User.create(:email => "user@example.com", :password => "password")
-		@user2 = User.create(:email => "user2@example.com", :password => "12345678")
+		@user = create(:user)
+		@user2 = create(:user, email: "user2@example.com", password: "12345678")
 	end
 	describe "GET #show" do
 		context "User is logged in" do
