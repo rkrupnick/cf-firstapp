@@ -60,3 +60,4 @@ gem 'spork-rails'
 gem 'stripe'
 gem 'brakeman', require: false
 gem 'angularjs-rails'
+gem 'dalli'

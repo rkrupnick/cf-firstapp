@@ -1,9 +1,9 @@
 <h1 class="products">Our Products</h1>
 
 
-
-<%= render @products %>
-
+<% cache(cache_key_for_products) do %>
+	<%= render @products %>
+<% end %>
 
 <br>
 
