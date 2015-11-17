@@ -17,4 +17,10 @@ FactoryGirl.define do
 		user
 		product
 	end
+
+	factory :order do
+		product_id	1
+		user_id			1
+		total				200
+	end
 end

@@ -5,6 +5,7 @@ describe UsersController do
 		@user = create(:user)
 		@user2 = create(:user, email: "user2@example.com", password: "12345678")
 	end
+	
 	describe "GET #show" do
 		context "User is logged in" do
 			before do
