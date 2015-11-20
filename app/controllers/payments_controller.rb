@@ -2,14 +2,14 @@ class PaymentsController < ApplicationController
 
 	def create
 		@product = params[:product_id]
-		@user = curren_user
+		@user = current_user
 		token = params[:stripeToken]
 		# Create the charge on Stripe's servers
 		begin
 			charge = Stripe::Charge.create(
 				:amount => @product.price,
 				:currency => "usd",
-				:source => toekn,
+				:source => token,
 				:description => params[:stripeEmail]
 				)
 			if charge.paid
