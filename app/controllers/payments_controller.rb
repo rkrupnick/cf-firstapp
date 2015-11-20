@@ -1,9 +1,9 @@
 class PaymentsController < ApplicationController
 
 	def create
-		@product = params[:product_id]
-		@user = current_user
 		token = params[:stripeToken]
+		@product = Product.find(params[:product_id])
+		@user = current_user
 		# Create the charge on Stripe's servers
 		begin
 			charge = Stripe::Charge.create(
@@ -13,7 +13,10 @@ class PaymentsController < ApplicationController
 				:description => params[:stripeEmail]
 				)
 			if charge.paid
-				Order.create(@product.id, @user.id, @product.price)
+				Order.create(
+					:product_id => @product.id,
+					:user_id => @user.id,
+					:total => @product.price)
 			end
 		rescue Stripe::CardError => e
 			# The card has been declined
@@ -21,6 +24,6 @@ class PaymentsController < ApplicationController
 			err = body[:error]
 			flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
 		end
-		redirect_to product_path(product)
+		redirect_to product_path(@product)
 	end
 end
